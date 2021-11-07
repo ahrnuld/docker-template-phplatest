@@ -1,4 +1,5 @@
 version: '3'
+
 services:
     nginx:
         image: nginx:latest
@@ -24,5 +25,12 @@ services:
             - mysqldata:/var/lib/mysql
         ports:
             - 3306:3306
+    phpmyadmin:
+        image: phpmyadmin:latest
+        ports:
+            - 8080:80
+        environment:
+            - PMA_HOST=mysql
+        restart: unless-stopped
 volumes:
     mysqldata: {}
