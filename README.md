@@ -1,5 +1,5 @@
 # Docker template for PHP projects
-This repository contains a starting template for PHP application development.
+This repository provides a starting template for PHP application development.
 
 It contains:
 * NGINX webserver
