@@ -19,7 +19,11 @@ In a terminal, run:
 docker-compose up
 ```
 
-Press Ctrl+C to end the containers, or run:
+NGINX will now serve files in the public/app folder on localhost
+PHPMyAdmin is accessible on localhost:8080
+
+If you want to stop the containers, press Ctrl+C. 
+Or run:
 ```bash
 docker-compose down
 ```
