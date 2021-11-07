@@ -3,7 +3,7 @@ This repository provides a starting template for PHP application development.
 
 It contains:
 * NGINX webserver
-* PHP FastCGI Process Manager
+* PHP FastCGI Process Manager with PDO MySQL support
 * MariaDB (GPL MySQL fork)
 * PHPMyAdmin
 
