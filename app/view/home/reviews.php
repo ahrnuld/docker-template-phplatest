@@ -1,4 +1,6 @@
-
+<!-- <?php
+require __DIR__ . '/../../config.php';
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href= "/css/reviewStyle.css">
+
     <title>High-Score</title>
 </head>
 
@@ -47,16 +51,16 @@
     </nav>
 
 
-    <!-- Display the games currently in the database -->
-    <h1>Games</h1>
-
-
-    <div class="row" id="itemList">
+    <!-- Display the game selected -->
+    <div class="row" id="gamecontainer">
         <?php
+        // $gameid = $_GET['gameid'];
+
+        // $games = $db->query("SELECT * FROM game WHERE gameID ='$gameid' ");
 
         foreach ($games as $game) {
         ?>
-            <div class="card mb-3" style="max-width: 540px;" >
+            <div class="card mb-3" style=>
                 <div class="row g-0">
                     <div class="col-md-4">
                         <!-- Since images are stored in the database as a LONGBLOB value, the data, charset and base64 parameters are 
@@ -67,12 +71,34 @@
                         <div class="card-body">
                             <h5 class="card-title"> <?= $game->title ?> </h5>
                             <p class="card-text"><?= $game->genre ?> </p>
-                            <a href="reviews?gameid=<?= $game->gameID ?>" class="btn btn-primary stretched-link">See reviews</a>
+                            <!-- Display the description -->
                         </div>
+
                     </div>
                 </div>
             </div>
         <?php
+        }
+        ?>
+    </div>
+    <div class="row" id="reviewslist">
+    <?php 
+        foreach ($reviews as $review) {
+            ?>
+            <div class="card mb-3"  >
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="score"> <?= $review->score ?> </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"> <?= $review->title ?> </h5>
+                            <p class="card-text"><?= $review->body ?> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php    
         }
         ?>
     </div>
